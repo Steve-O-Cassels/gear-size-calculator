@@ -35,7 +35,7 @@ createGearSizeObject = (chainRing, sprocket, gearSize, ratio, rimAndTyreDiameter
       ratio
       rimAndTyreDiameterInInches
     }
-    toString: -> return @chainRing + " x " + @sprocket + " : " + @gearSize
+    toString: -> return @chainRing + " x " + @sprocket + ", ratio: " + @details.ratio + ", diameter: " + @details.rimAndTyreDiameterInInches
   }
 
 
