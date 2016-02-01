@@ -3,8 +3,9 @@
   "version": "1.0.0",
   "description": "Create gear size data for bike ratio comparison",
   "author": "steve.o.cassels@gmail.com",
-  "main": "index.js",
+  "main": "./lib/calculator.js",
   "scripts": {
+    "prepublish": "coffee -o lib/ -c src/calculator.coffee",
     "test": "./node_modules/.bin/nodeunit tests"
   },
   "repository": {
@@ -13,10 +14,11 @@
   },
   "keywords": [
     "bike",
-    "gear-size"
+    "gear-size",
+    "gear-ratio"
   ],
   "license": "MIT",
-  "dependencies": {
+  "devDependencies": {
     "coffee-script": "^1.10.0",
     "nodeunit": "^0.9.1"
   }
