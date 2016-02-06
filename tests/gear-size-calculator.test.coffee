@@ -1,5 +1,4 @@
 GearSize = require './../src/calculator'
-Util = require('util')
 
 exports.GearSizeCalculatorTest =
 
