@@ -1,6 +1,6 @@
 {
   "name": "gear-size-calculator",
-  "version": "1.0.0",
+  "version": "0.1.0",
   "description": "Create gear size data for bike ratio comparison",
   "author": "steve.o.cassels@gmail.com",
   "main": "./lib/calculator.js",
