@@ -33,7 +33,7 @@ result = calculator.generateGearSizesInInches(chainRings, cassette, rimDiameter,
 console.log(result);
 
 ```
-This is exemplified in the following test:
+This is exemplified in the following test (assertions omitted):
 ```
 'test can generate gear sizes for multiple chainrings and cassettes in inches': (test) ->
   chainRings = [39,53]
