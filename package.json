@@ -5,7 +5,11 @@
   "author": "steve.o.cassels@gmail.com",
   "main": "./lib/calculator.js",
   "scripts": {
+    "preversion": "npm test",
     "prepublish": "coffee -o lib/ -c src/calculator.coffee",
+    "patch-release": "npm version patch && npm publish && git push --follow-tags",
+    "minor-release": "npm version minor && npm publish && git push --follow-tags",
+    "major-release": "npm version major && npm publish && git push --follow-tags",
     "test": "./node_modules/.bin/nodeunit tests"
   },
   "repository": {
