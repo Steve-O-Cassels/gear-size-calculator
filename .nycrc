@@ -1,0 +1,15 @@
+{
+  "lines": 85,
+  "check-coverage": true,
+  "reporter": [
+    "text-summary"
+  ],
+  "include": [
+    "./src/convert-unit.js"
+  ],
+  "require": [
+    "./test/support/common"
+  ],
+  "sourceMap": false,
+  "instrument": false
+}
