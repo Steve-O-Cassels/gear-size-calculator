@@ -1,16 +1,24 @@
 require('babel-polyfill');
-import _ from 'lodash/math';
+import round from 'lodash/round';
+import isNumber from 'lodash/isNumber';
 
 const mmToInches = (mm) => {
+  isValidNumberToConvert(mm);
   const cm = mmToCm(mm);
   const inches = cm / 2.54;
-  return _.round(inches, 2);
+  return round(inches, 2);
 };
 
 const mmToCm = (mm) => {
-  return _.round((mm / 10), 2);
+  isValidNumberToConvert(mm);
+  return round((mm / 10), 2);
 };
 
+const isValidNumberToConvert = (input) => {
+  if ((input === undefined) | (!isNumber(input))) {
+    throw new Error('mm must be an number');
+  }
+};
 export {
   mmToCm,
   mmToInches
