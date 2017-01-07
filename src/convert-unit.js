@@ -2,8 +2,8 @@ require('babel-polyfill');
 import _ from 'lodash/math';
 
 const mmToInches = (mm) => {
-  let cm = mmToCm(mm);
-  let inches = cm / 2.54;
+  const cm = mmToCm(mm);
+  const inches = cm / 2.54;
   return _.round(inches, 2);
 };
 

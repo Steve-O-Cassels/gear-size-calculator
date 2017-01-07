@@ -10,6 +10,7 @@
     "patch-release": "npm version patch && npm publish && git push --follow-tags",
     "minor-release": "npm version minor && npm publish && git push --follow-tags",
     "major-release": "npm version major && npm publish && git push --follow-tags",
+    "test:w": "cross-env NODE_ENV=test nyc mocha --watch --recursive --reporter dot 'src/**/*spec.js'",
     "test": "./node_modules/.bin/nodeunit tests && npm run test:unit",
     "test:unit": "cross-env NODE_ENV=test nyc mocha --recursive --reporter dot 'src/**/*spec.js'"
   },
