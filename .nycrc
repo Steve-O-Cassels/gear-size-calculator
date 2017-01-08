@@ -1,15 +1,23 @@
 {
   "lines": 85,
-  "check-coverage": true,
   "reporter": [
+    "lcov",
     "text-summary"
   ],
   "include": [
-    "./src/convert-unit.js"
+    "./src/**/*.js"
+  ],
+  "exclude": [
+    "./src/*.coffee",
+    "./src/*.spec.js"
   ],
   "require": [
-    "./test/support/common"
+    "./test/support/common",
+    "babel-register"
   ],
   "sourceMap": false,
-  "instrument": false
+  "instrument": false,
+  "cache": true,
+  "all": true,
+  "check-coverage": true
 }
