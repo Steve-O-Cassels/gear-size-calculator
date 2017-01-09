@@ -1,4 +1,4 @@
-import {mmToInches, mmToCm} from './convert-unit';
+import mmToInches, {mmToCm} from './convert-unit';
 
 describe('src/utils/convert-unit/mmToInches', function() {
   const sut = mmToInches;
