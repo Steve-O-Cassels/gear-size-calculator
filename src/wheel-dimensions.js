@@ -1,16 +1,15 @@
 import round from 'lodash/round';
-const PI = Math.PI;
 
 export default function wheelCircumference(rimDiameter,tyreSize){
   const rimAndTyreDiameter = wheelDiameter(rimDiameter, tyreSize);
   return circumference(rimAndTyreDiameter);
 }
 
-export function wheelDiameter(rimDiameter = 622, tyreSize = 25){
+export function wheelDiameter(rimDiameter, tyreSize){
   return rimDiameter + (tyreSize * 2);
 }
 
 const circumference = (diameter) => {
-  const _circumference = diameter * PI;
+  const _circumference = diameter * Math.PI;
   return round(_circumference, 2);
 };
