@@ -10,10 +10,10 @@ export default function validate(chainRings){
     throw new Error(`Chainring combination must be an array of two chainrings.`);
   }
   const validChainRingCombinations = clone(chainRingCombinations);
-  const result = map(validChainRingCombinations, (x) => {
+  const results = map(validChainRingCombinations, (x) => {
     return difference(chainRings, x).length === 0;
   });
-  if(!some(result, (x) => x === true)){
+  if(!some(results, (x) => x === true)){
     throw new Error(`Chainring combination ${chainRings} is not supported.`);
   }
 }

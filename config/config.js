@@ -1,22 +1,34 @@
 import union from 'lodash/union';
 
-const campagTenCassettes = [
+const cassetteSprocketCount = [
+  8,9,10,11
+];
+
+const eightCassettes = [
+  [12,13,14,15,16,17,19,21]
+];
+
+const nineCassettes = [
+  [12,13,14,15,16,17,19,21,23]
+];
+
+const tenCassettes = [
   [11,12,13,14,15,16,17,19,21,23],
   [12,13,14,15,16,17,19,21,23,25],
   [13,14,15,16,17,19,21,23,25,27]
 ];
-const campagElevenCassettes = [
+const elevenCassettes = [
   [11,12,13,14,15,16,17,18,19,21,23],
   [12,13,14,15,16,17,18,19,21,23,25],
   [13,14,15,16,17,18,19,21,23,25,27]
 ];
-const campagINeedToTrainMoreChainrings = [
+const iNeedToTrainMoreChainrings = [
   34,50
 ];
-const campagSeverelyRollingParcourChainrings = [
+const severelyRollingParcourChainrings = [
   36,52
 ];
-const campagRacingChainrings = [
+const racingChainrings = [
   39,53
 ];
 const tyreWidths = [
@@ -30,22 +42,29 @@ const rimDiameters = [
 
 module.exports = {
   chainRingCombinations: [
-    campagINeedToTrainMoreChainrings,
-    campagSeverelyRollingParcourChainrings,
-    campagRacingChainrings
+    iNeedToTrainMoreChainrings,
+    severelyRollingParcourChainrings,
+    racingChainrings
   ],
   chainRings: union(
-    campagINeedToTrainMoreChainrings,
-    campagSeverelyRollingParcourChainrings,
-    campagRacingChainrings
+    iNeedToTrainMoreChainrings,
+    severelyRollingParcourChainrings,
+    racingChainrings
   ),
+  cassetteSpeeds: [
+    cassetteSprocketCount
+  ],
   cassetteCombinations: [
-    campagTenCassettes,
-    campagElevenCassettes
+    eightCassettes,
+    nineCassettes,
+    tenCassettes,
+    elevenCassettes
   ],
   sprockets: union(
-    campagTenCassettes,
-    campagElevenCassettes
+    eightCassettes,
+    nineCassettes,
+    tenCassettes,
+    elevenCassettes
   ),
   rimDiameters,
   tyreWidths
