@@ -6,12 +6,11 @@ import map from 'lodash/map';
 import flattenDeep from 'lodash/flattenDeep';
 import flatten from 'lodash/flatten';
 
-
 export default function validate(cassette){
   const validCassetteSpeeds = flattenDeep(cassetteSpeeds);
 
   if(!isArray(cassette) | (!validCassetteSpeed(validCassetteSpeeds, cassette.length)))
-    throw new Error(`Number of sprockets in the cassette was ${cassette.length} but must be one of: ${validCassetteSpeeds}.`);
+    throw new Error(`Invalid number of sprockets in the cassette, found ${cassette.length} but must be one of: ${validCassetteSpeeds}.`);
 
   if(!validCassetteCombination(cassetteCombinations, cassette)){
     throw new Error(`Cassette combination ${cassette} is not supported.`);
