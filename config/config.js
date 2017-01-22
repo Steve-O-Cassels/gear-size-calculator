@@ -23,13 +23,13 @@ const elevenCassettes = [
   [13,14,15,16,17,18,19,21,23,25,27]
 ];
 const iNeedToTrainMoreChainrings = [
-  34,50
+  [34,50]
 ];
 const severelyRollingParcourChainrings = [
-  36,52
+  [36,52]
 ];
 const racingChainrings = [
-  39,53
+  [39,53]
 ];
 const tyreWidths = [
   23,25,28,32,35,37
@@ -51,9 +51,9 @@ module.exports = {
     severelyRollingParcourChainrings,
     racingChainrings
   ),
-  cassetteSpeeds: [
+  cassetteSpeeds:
     cassetteSprocketCount
-  ],
+  ,
   cassetteCombinations: [
     eightCassettes,
     nineCassettes,

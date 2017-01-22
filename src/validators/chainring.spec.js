@@ -1,30 +1,40 @@
 import validate from './chainring';
 
+const config = {
+  chainRingCombinations: [
+    [39,53]
+  ]
+};
+
+const Sut = (chainRings) => {
+  validate(chainRings, config.chainRingCombinations);
+};
+
 describe('src/validator', function(){
-  let sut = validate;
 
   context('chainring validation', function(){
     context('with valid input', function(){
       it('should not throw', function(){
-        const act = () => sut([39,53]);
+        const validChainRings = [39,53];
+        const act = () => Sut(validChainRings);
         act.should.not.throw();
       });
     });
     context('with invalid input', function(){
       it('should throw when two rings are provided but size is incompatible', function(){
         const invalidInput = [39,51];
-        const act = () => sut(invalidInput);
+        const act = () => Sut(invalidInput);
         act.should.throw(`Chainring combination ${invalidInput} is not supported.`);
       });
       it('should throw when one ring is provided', function(){
         const invalidInput = [39];
-        const act = () => sut({chainRings: invalidInput});
-        act.should.throw(`Chainring combination must be an array of two chainrings.`);
+        const act = () => Sut(invalidInput);
+        act.should.throw(`Invalid number of chainrings.`);
       });
       it('should throw when input is not an array', function(){
         const invalidInput = "39,53";
-        const act = () => sut({chainRings: invalidInput});
-        act.should.throw(`Chainring combination must be an array of two chainrings.`);
+        const act = () => Sut(invalidInput);
+        act.should.throw(`Invalid number of chainrings.`);
       });
     });
   });
