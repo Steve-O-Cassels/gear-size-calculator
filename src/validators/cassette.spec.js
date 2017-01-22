@@ -11,7 +11,7 @@ const config = {
 
 describe('src/validators/cassette', function(){
 
-  let Sut = (cassette) => validate(
+  const Sut = (cassette) => validate(
     cassette,
     config.cassetteCombinations,
     config.cassetteSpeeds
