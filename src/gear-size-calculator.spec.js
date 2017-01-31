@@ -1,6 +1,7 @@
 let Sut;
 let moduleUnderTest = './gear-size-calculator';
 
+
 describe('src/gear-size/', function(){
   let cassetteValidatorMock,
     chainringValidatorMock,
@@ -28,11 +29,22 @@ describe('src/gear-size/', function(){
     mockery.resetCache();
   });
 
+  let mockValues = {
+    cassetteIsValid: true,
+    chainRingIsValid: true,
+    wheelDiameter: 672,
+    gearSize: 108,
+    gearRatio: 1.6
+  };
+
   const setupStubs = () => {
-    cassetteValidatorMock = sinon.stub().returns(true);
-    chainringValidatorMock = sinon.stub().returns(true);
-    wheelDiameterMock = { wheelDiameter: sinon.stub().returns(672) };
-    gearSizeMock = sinon.stub().returns(1);
+    cassetteValidatorMock = sinon.stub().returns(mockValues.cassetteIsValid);
+    chainringValidatorMock = sinon.stub().returns(mockValues.chainRingIsValid);
+    wheelDiameterMock = { wheelDiameter: sinon.stub().returns(mockValues.wheelDiameter) };
+    gearSizeMock = sinon.stub().returns({
+      gearSize: mockValues.gearSize,
+      gearRatio: mockValues.gearRatio
+    });
   };
 
   const registerMocks = () => {
@@ -52,6 +64,25 @@ describe('src/gear-size/', function(){
       const act = () => {
         return Sut(chainRings, cassette, rimDiameter, tyreSize);
       };
+      it('should return an array of object', function(){
+        act()[0].should.be.an('object');
+      });
+      it('should return correct gear size', function(){
+        const expected = {
+          chainRing: chainRings[0],
+          sprocket: cassette[0],
+          gearSize: mockValues.gearSize,
+          gearRatio: mockValues.gearRatio,
+          rimAndTyreDiameter: mockValues.wheelDiameter
+        };
+        const firstOfResult = act()[0];
+
+        firstOfResult.should.have.property('chainRing', expected.chainRing);
+        firstOfResult.should.have.property('sprocket', expected.sprocket);
+        firstOfResult.should.have.property('gearSize', expected.gearSize);
+        firstOfResult.should.have.property('gearRatio', expected.gearRatio);
+        firstOfResult.should.have.property('rimAndTyreDiameter', expected.rimAndTyreDiameter);
+      });
 
       it('should return correct number of gear sizes', function(){
         act().length.should.equal(cassette.length * chainRings.length);

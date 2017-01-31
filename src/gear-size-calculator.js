@@ -17,13 +17,13 @@ export default function gearSizes(
   const rimAndTyreDiameter = wheelDiameter(rimDiameter, tyreSize);
   const result = reduce(chainRings, (acc, chainRing) => {
       each(cassette, (sprocket) => {
-        const _gearSize = gearSize(chainRing, sprocket, rimAndTyreDiameter);
+        const {gearSize: size, gearRatio: ratio} = gearSize(chainRing, sprocket, rimAndTyreDiameter);
         acc.push(
           gearSizeObjectFactory(
             chainRing,
             sprocket,
-            _gearSize,
-            1,//ratio,
+            size,
+            ratio,
             rimAndTyreDiameter)
         );
       });
@@ -39,10 +39,8 @@ const gearSizeObjectFactory = (
     chainRing: chainRing,
     sprocket: sprocket,
     gearSize: gearSize,
-    details: {
-      ratio: ratio,
-      rimAndTyreDiameterInInches: rimAndTyreDiameter
-    },
+    gearRatio: ratio,
+    rimAndTyreDiameter: rimAndTyreDiameter,
     toString: function() {
       return this.chainRing + " x " + this.sprocket + ", ratio: " + this.details.ratio + ", diameter: " + this.details.rimAndTyreDiameterInInches;
     }
